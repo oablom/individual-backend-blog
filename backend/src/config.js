@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 import app from "./app.js";
-export const RUN_SERVER = async (port) => {
-  if (!port) {
+export const RUN_SERVER = async (port, db_path) => {
+  if (!db_path || !port) {
     throw new Error(
       "PROVIDE ADDITIONAL INPUT TO ESTABLISH CONNECTION WITH DATABASE AND SERVER."
     );
   }
   try {
-    // await mongoose.connect(db_path);
+    await mongoose.connect(db_path);
     app.listen(port, () => {
       console.log("Connected to host:", port);
     });
