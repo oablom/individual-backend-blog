@@ -5,7 +5,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
-  res.send("hi there. server is working fine!", process.env.MONGODB_URI);
+  res.send("hi there. server is working fine!" + process.env.MONGODB_URI);
 });
 
 export default app;
